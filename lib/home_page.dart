@@ -20,7 +20,7 @@ class _HomeState extends State<Home> {
    'Clouds':'cloudy.jpeg',
    'Sunny':'sunny.jpg',
    'Rain': 'rainy.jpg',
-   'Snow': 'snow.jpg',
+   'Snow': 'snowy.jpg',
    'Default':'night.jpg',
    "Windy":'windy.jpg'
  };
