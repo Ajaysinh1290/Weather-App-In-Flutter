@@ -1,6 +1,6 @@
 # Weather App In Flutter
 
-An app which will provies you weather data according to city.
+An Flutter app which will provies you weather data according to city.
 
 # Features
 
