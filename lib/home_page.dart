@@ -49,15 +49,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     if(data.isEmpty) {
     data=ModalRoute.of(context).settings.arguments;
-    weather.city=data['city'];
-    weather.wind=data['wind'];
-    weather.cloud=data['cloud'];
-    weather.humidity=data['humidity'];
-    weather.weatherType=data['weatherType'];
-    weather.temp=data['temp'];
-    weather.icon=data['icon'];
-    weather.time=data['time'];
-    weather.timeHour=data['timeHour'];
+      weather=data['weather'];
     }
     print(weather.timeHour);
    defaultBgImage=weather.timeHour>6&&weather.timeHour<18?'sunny.jpg':'night.jpg';
@@ -147,7 +139,7 @@ class _HomeState extends State<Home> {
                               children: [
                                 SizedBox(height: 120,),
                                 Text(
-                                  ' ${weather.city}',
+                                  ' ${weather.available?weather.city:weather.error}',
 
                                   style: GoogleFonts.lato(
 
@@ -176,7 +168,7 @@ class _HomeState extends State<Home> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            '${weather.temp} \u00b0',
+                            weather.available?'${weather.temp} \u00b0':'--',
 
                             style: GoogleFonts.lato(
 
@@ -231,7 +223,7 @@ class _HomeState extends State<Home> {
                                   ),
                                   SizedBox(height: 12,),
                                   Text(
-                                      '${weather.wind}',
+                                      weather.available?'${weather.wind}':'-',
                                       style: GoogleFonts.lato(
                                           color:Colors.white,
                                           fontWeight: FontWeight.bold,
@@ -284,7 +276,7 @@ class _HomeState extends State<Home> {
                                   ),
                                   SizedBox(height: 12,),
                                   Text(
-                                      '${weather.cloud}',
+                                      weather.available?'${weather.cloud}':'-',
                                       style: GoogleFonts.lato(
                                           color:Colors.white,
                                           fontWeight: FontWeight.bold,
@@ -336,7 +328,7 @@ class _HomeState extends State<Home> {
                                   ),
                                   SizedBox(height: 12,),
                                   Text(
-                                      '${weather.humidity}',
+                                      weather.available?'${weather.humidity}':'-',
                                       style: GoogleFonts.lato(
                                           color:Colors.white,
                                           fontWeight: FontWeight.bold,

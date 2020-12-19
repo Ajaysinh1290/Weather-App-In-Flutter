@@ -11,20 +11,13 @@ class _SplashScreenState extends State<SplashScreen> {
 
 
   Weather weather=Weather();
+
   Future<void> setUpData() async{
 
     await weather.getWeather();
     Navigator.pushReplacementNamed(context, '/home',arguments:
     {
-      'city':weather.city,
-      'wind':weather.wind,
-      'temp':weather.temp,
-      'cloud':weather.cloud,
-      'weatherType':weather.weatherType,
-      'humidity':weather.humidity,
-      'icon':weather.icon,
-      'time':weather.time,
-      'timeHour':weather.timeHour,
+      'weather':weather,
     });
   }
   @override

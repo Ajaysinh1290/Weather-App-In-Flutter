@@ -8,6 +8,7 @@ class CitySearchDelegate<String> extends SearchDelegate<String> {
   List list=['Ahmedabad','Mumbai','Udaipur','Delhi','Kolkata','Chennai','Hyderabad','New York','Paris',
     'London','Tokyo','Rome','Dubai','Moscow','Sydney','Hong Kong','Singapore','Beijing','Athens'
   ];
+
   @override
   List<Widget> buildActions(BuildContext context)=>[IconButton(icon: Icon(Icons.clear,),onPressed: ()=>query='',)];
   @override
@@ -19,6 +20,7 @@ class CitySearchDelegate<String> extends SearchDelegate<String> {
   @override
   Widget buildSuggestions(BuildContext context) {
     // TODO: implement buildSuggestions
+
     List listToShow=query.isEmpty?list:list.where((e) => e.toLowerCase().startsWith(query.toLowerCase())).toList();
     return listToShow.isEmpty?Text('No results found...'):ListView.builder(
       itemCount: listToShow.length,
@@ -30,7 +32,7 @@ class CitySearchDelegate<String> extends SearchDelegate<String> {
             },
           title: Text(city,
           style: TextStyle(
-              fontSize: 18
+              fontSize: 18,
           ),
           ),
         );
